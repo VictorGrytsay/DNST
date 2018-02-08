@@ -1,3 +1,12 @@
 Debug
 /.vs/Dnst.Suite/v14/*.suo
 /Dnst.App/.vs/Dnst.App/v14/*.suo
+Release
+/Dnst.Web.App/*.user
+bin
+tools
+build
+content
+Microsoft.Net.Compilers.1.0.0
+Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0
+config
