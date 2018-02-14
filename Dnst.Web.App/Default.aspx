@@ -23,6 +23,9 @@
             </asp:Panel>
 
         </div>
+        <div>
+            <a href="Users.aspx">Users</a>
+        </div>
     </form>
 </body>
 </html>

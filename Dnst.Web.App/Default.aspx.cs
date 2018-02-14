@@ -14,9 +14,12 @@ namespace Dnst.Web.App
         {
 
         }
-
+        
         protected void Page_Load(object sender, EventArgs e)
         {
+            Response.Headers.Add("test1", "a%0aa");
+            Response.Headers.Add("test2", "d%0dd");
+
             if (!base.Page.IsPostBack)
             {
                 listItems.Items.Add("One");
