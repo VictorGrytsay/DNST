@@ -27,9 +27,42 @@ namespace Dnst.DataLayer
 
         public IEnumerable<UserModel> GetAllUsers()
         {
-            throw new NotImplementedException();
-        }
+            List<UserModel> users = new List<Models.UserModel>();
 
+            _connection.Open();
+
+            try
+            {
+                StringBuilder builder = new StringBuilder();
+
+                builder.Append("SELECT * FROM USERS");
+                string command = builder.ToString();
+
+                using (SqlCommand insertCommand = new SqlCommand(command, _connection))
+                {
+                    using (SqlDataReader reader = insertCommand.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            UserModel model = new Models.UserModel();
+                            model.Id = int.Parse(reader["Id"].ToString());
+                            model.Name = reader["Name"].ToString();
+                            model.Email = reader["Email"].ToString();
+                            model.DateCreation = DateTime.Parse(reader["DateCreation"].ToString());
+
+                            users.Add(model);
+                        }
+                    }
+                }
+            }
+            finally
+            {
+                _connection.Close();
+            }
+
+            return users;
+        }
+        
         public UserModel CreateUser(string name, string email, string password)
         {
             UserModel um = new UserModel();
