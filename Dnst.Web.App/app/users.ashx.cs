@@ -14,9 +14,17 @@ namespace Dnst.Web.App.app
             using (UserRepository repository = new UserRepository("dnst"))
             {
                 var users = repository.GetAllUsers();
+                
+                var usersToSend = users.Select(u=> new
+                {
+                    Id = u.Id,
+                    Name = u.Name,
+                    Email = u.Email,
+                    DateCreation = u.DateCreation.ToString()
+                }).ToArray();
 
                 JavaScriptSerializer jsr = new JavaScriptSerializer();
-                string json = jsr.Serialize(users);
+                string json = jsr.Serialize(usersToSend);
 
                 context.Response.ContentType = "application/json";
                 context.Response.Write(json);

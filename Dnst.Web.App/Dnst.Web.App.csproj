@@ -66,11 +66,14 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="app\createuser.html" />
+    <Content Include="app\createuser.js" />
     <Content Include="app\users.html" />
     <Content Include="app\users.js" />
     <Content Include="packages.config" />
     <Content Include="AjaxHandler.ashx" />
     <Content Include="app\users.ashx" />
+    <Content Include="app\createuser.ashx" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -88,6 +91,9 @@
   <ItemGroup>
     <Compile Include="AjaxHandler.ashx.cs">
       <DependentUpon>AjaxHandler.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="app\createuser.ashx.cs">
+      <DependentUpon>createuser.ashx</DependentUpon>
     </Compile>
     <Compile Include="app\users.ashx.cs">
       <DependentUpon>users.ashx</DependentUpon>
